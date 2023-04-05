@@ -1,18 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, ImageBackground } from 'react-native';
 import Start from './screens/Start';
 
 export default function App(){
     return(
-        <Start/>
+        <View  style={styles.rootScreen}>
+            <ImageBackground source={require('./img/bg.jpeg')} resizeMode='cover' style={styles.rootScreen} imageStyle={styles.bg}>
+                <Start/>
+            </ImageBackground>
+        </View>   
     );
 }
 
 const styles =  StyleSheet.create({
-    container: {
+    rootScreen: {
         flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+        backgroundColor: '#CBE4DE'
+    },
+
+    bg: {
+        flex: 1,
+        opacity: 0.15
     }
 })
