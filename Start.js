@@ -1,21 +1,27 @@
 import { useState } from 'react';
-import { TextInput, View, StyleSheet } from 'react-native';
+import { TextInput, View, StyleSheet, Alert } from 'react-native';
 import Primarybtn from '../components/Primarybtn';
 
-function Start(){
+function Start({onPickNumber}){
     const [enteredValue, setEnteredValue] = useState ('');
 
     function valueInputHandler(enteredText) {
         setEnteredValue(enteredText);
     }
 
+    function resetValueHandler(){
+        setEnteredValue('');
+    }
+
     function confirmValueHandler() {
         const chosenNumber = parseInt(enteredValue);
 
         if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99 ) {
-            //show alert
-            return
+            Alert.alert('Invalid Number!', 'Sowwy, the entered number has to be between 1 to 99 !! o(￣┰￣*)ゞ', [{text: 'I understand', style:'default', onPress: resetValueHandler}]);
+            return;
         }
+
+       onPickNumber(chosenNumber );
     }
 
 
@@ -29,7 +35,7 @@ function Start(){
         />
         <View style={styles.btnsContainer}>
             <View style={styles.btnContainer} >
-                <Primarybtn> Reset </Primarybtn>
+                <Primarybtn onPress={resetValueHandler}> Reset </Primarybtn>
             </View>
             <View style={styles.btnContainer}>
                 <Primarybtn onPress={confirmValueHandler}> Confirm </Primarybtn>

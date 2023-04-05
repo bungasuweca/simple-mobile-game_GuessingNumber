@@ -1,11 +1,27 @@
-import { StyleSheet, View, ImageBackground } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, View, ImageBackground, SafeAreaView } from 'react-native';
 import Start from './screens/Start';
 
+import Main from './screens/Main';
+
 export default function App(){
+    const [userNumber, setUserNumber] = useState();
+    
+    function pickedNumberHandler(pickedNUmber){
+        setUserNumber(pickedNUmber)
+    }
+
+    let screen = <Start onPickNumber={pickedNumberHandler}/>;
+
+    if(userNumber) {
+        screen = <Main/>
+    }
+
     return(
         <View  style={styles.rootScreen}>
             <ImageBackground source={require('./img/bg.jpeg')} resizeMode='cover' style={styles.rootScreen} imageStyle={styles.bg}>
-                <Start/>
+                <SafeAreaView>{screen}</SafeAreaView>
+
             </ImageBackground>
         </View>   
     );
