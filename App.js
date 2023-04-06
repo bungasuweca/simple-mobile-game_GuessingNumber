@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { StyleSheet, View, ImageBackground, SafeAreaView } from 'react-native';
 import Start from './screens/Start';
-
+import Colors from './consts/colors';
 import Main from './screens/Main';
 
 export default function App(){
@@ -20,7 +20,7 @@ export default function App(){
     return(
         <View  style={styles.rootScreen}>
             <ImageBackground source={require('./img/bg.jpeg')} resizeMode='cover' style={styles.rootScreen} imageStyle={styles.bg}>
-                <SafeAreaView>{screen}</SafeAreaView>
+                <SafeAreaView style={styles.sfroot}>{screen}</SafeAreaView>
 
             </ImageBackground>
         </View>   
@@ -30,7 +30,11 @@ export default function App(){
 const styles =  StyleSheet.create({
     rootScreen: {
         flex: 1,
-        backgroundColor: '#CBE4DE'
+        backgroundColor: Colors.primary4
+    },
+
+    sfroot:{
+        flex:1,
     },
 
     bg: {

@@ -1,8 +1,10 @@
-import { View, Text, StyleSheet, Sa } from "react-native";
+import { View, Text, StyleSheet, SafeAreaView } from "react-native";
+import Title from "../components/Title";
 
 function Main() {
-    return <View style={styles.screen}>
-         <Text> My Guess (￣y▽￣)╭ Ohohoho..... </Text>
+    return (
+     <View style={styles.screen}>
+        <Title>My Guess!</Title>
          {/* Tebak */}
         <View>
             <Text>Higher or Lower?</Text>
@@ -10,7 +12,7 @@ function Main() {
         </View>
     {/* <View>Log Rounds!</View> */}
     </View>
-   
+    );
 }
 
 export default Main;
@@ -18,6 +20,7 @@ export default Main;
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
-        padding: 12, 
+        padding: 30,
     },
+    
 })

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { TextInput, View, StyleSheet, Alert } from 'react-native';
 import Primarybtn from '../components/Primarybtn';
+import Colors from '../consts/colors';
 
 function Start({onPickNumber}){
     const [enteredValue, setEnteredValue] = useState ('');
@@ -21,7 +22,7 @@ function Start({onPickNumber}){
             return;
         }
 
-       onPickNumber(chosenNumber );
+       onPickNumber(chosenNumber);
     }
 
 
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 24,
         padding: 20,
         marginTop: 90,
-        backgroundColor: '#2E4F4F',
+        backgroundColor: Colors.primary2,
         borderRadius: 10,
         elevation: 40,
     },
@@ -63,9 +64,9 @@ const styles = StyleSheet.create({
         width: 70,
         textAlign: 'center',
         fontSize: 35,
-        borderBottomColor: '#CBE4DE',
+        borderBottomColor: Colors.primary4 ,
         borderBottomWidth: 2,
-        color: '#CBE4DE',
+        color: Colors.primary4,
         marginVertical: 5,
         fontWeight: 'bold',
     },
