@@ -9,13 +9,15 @@ export default Title;
 
 const styles = StyleSheet.create({
     title:{
-        fontSize: 18,
+        marginTop: 60,
+        fontSize: 22,
         fontWeight: 'bold',
-        color:'white',
+        color:Colors.primary1,
         textAlign: 'center',
         borderWidth: 2,
-        borderColor: Colors.primary2 ,
-        backgroundColor: Colors.primary2,
+        borderColor: Colors.primary5 ,
+        backgroundColor: Colors.primary5,
+        borderRadius: 20,
         padding: 20,
     }
 })

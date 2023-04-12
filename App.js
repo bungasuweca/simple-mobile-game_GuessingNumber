@@ -3,18 +3,29 @@ import { StyleSheet, View, ImageBackground, SafeAreaView } from 'react-native';
 import Start from './screens/Start';
 import Colors from './consts/colors';
 import Main from './screens/Main';
+import GameOver from './screens/GameOver';
 
 export default function App(){
     const [userNumber, setUserNumber] = useState();
+    const [gameOver, setGameOver] = useState(true);
     
     function pickedNumberHandler(pickedNUmber){
-        setUserNumber(pickedNUmber)
+        setUserNumber(pickedNUmber);
+        setGameOver(false);
+    }
+
+    function gameOverHandler(){
+        setGameOver(true);
     }
 
     let screen = <Start onPickNumber={pickedNumberHandler}/>;
 
     if(userNumber) {
-        screen = <Main/>
+        screen = <Main userNumber={userNumber} onGameOver={gameOverHandler}/>
+    }
+
+    if (gameOver && userNumber){
+        screen = <GameOver />
     }
 
     return(
@@ -39,6 +50,6 @@ const styles =  StyleSheet.create({
 
     bg: {
         flex: 1,
-        opacity: 0.15
+        opacity: 0.12
     }
 })
