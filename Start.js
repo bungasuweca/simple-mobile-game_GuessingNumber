@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { TextInput, View, StyleSheet, Alert, Text } from 'react-native';
 import Primarybtn from '../components/ui/Primarybtn';
 import Colors from '../consts/colors';
+import Card from '../components/ui/card';
+import Instruction from '../components/ui/instruction';
 
 function Start({onPickNumber}){
     const [enteredValue, setEnteredValue] = useState ('');
@@ -18,7 +20,7 @@ function Start({onPickNumber}){
         const chosenNumber = parseInt(enteredValue);
 
         if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99 ) {
-            Alert.alert('Invalid Number!', 'Sowwy, the entered number has to be between 1 to 99 !! o(￣┰￣*)ゞ', [{text: 'I understand', style:'default', onPress: resetValueHandler}]);
+            Alert.alert('Invalid Number!', 'Maaf, angka yang bisa kamu masukkan hanya angka 1 sampai 99 !! o(￣┰￣*)ゞ', [{text: 'okh', style:'default', onPress: resetValueHandler}]);
             return;
         }
 
@@ -30,8 +32,8 @@ function Start({onPickNumber}){
         <View style={styles.root}>
             <Text style={styles.taitel}>ヾTebak-tebak Angka!!✧</Text>
             <Text style={styles.yuk}>ayo main tebak-tebakan denganku! aku akan menebak angka pilihanmu ο(=•ω＜=)ρ⌒☆</Text>
-            <View style={styles.inputContainer}>
-                <Text style={styles.instruction}>Ketik angkamu..</Text>
+            <Card>
+                <Instruction> Masukkan angkamu ..</Instruction>
                 <TextInput 
                     style={styles.inputNumber}       
                     maxLength={2} 
@@ -47,7 +49,7 @@ function Start({onPickNumber}){
                         <Primarybtn onPress={confirmValueHandler}> Mulai! </Primarybtn>
                     </View>
                 </View>
-            </View>
+            </Card>
         </View>
     );
 }
@@ -78,22 +80,6 @@ const styles = StyleSheet.create({
         fontSize: 11,
         color: Colors.primary2,
         borderTopWidth: 0.5,
-    },
-
-    instruction:{
-        color: 'white',
-        fontSize: 20,
-    },
-
-    inputContainer: {
-        justifyContent:  'center',
-        alignItems: 'center',
-        marginHorizontal: 24,
-        padding: 20,
-        marginTop: 36,
-        backgroundColor: Colors.primary2,
-        borderRadius: 10,
-        elevation: 40,
     },
 
     inputNumber: {

@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Alert } from "react-native";
 import Title from "../components/ui/Title";
 import NumberContainer from "../components/game/NumberContainer";
 import Primarybtn from "../components/ui/Primarybtn";
+import Card from "../components/ui/card";
 
 function generateRandomBetween(min, max, exclude) {
     const rndNum = Math.floor(Math.random() * (max-min)) + min;
@@ -51,13 +52,13 @@ function Main({userNumber, onGameOver}) {
         <View style={styles.screen}>
             <Title>Tebakan aq ♪(^∇^* : </Title>
             <NumberContainer>{currentGuess}</NumberContainer>                
-                <View>
+                <Card>
                     <Text>Lebih tinggi atw lebih kecil?</Text>
                     <View>
                         <Primarybtn onPress={nextGuessHandler.bind(this, 'lower')}> - </Primarybtn>
                         <Primarybtn onPress={nextGuessHandler.bind(this, 'greater')}> + </Primarybtn>
                     </View>
-                </View>
+                </Card>
             </View>
 
     );
