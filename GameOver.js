@@ -1,18 +1,20 @@
 import { Image, Text, View, StyleSheet} from "react-native";
-import Title from "../components/ui/Title";
 import Colors from "../consts/colors";
+import Primarybtn from "../components/ui/Primarybtn";
 
 function GameOver() {
     return ( 
         <View style={styles.root}>
         <Text style={styles.hurei}>ヾHooray!</Text> 
-        <Text style={styles.ovrtitle}>I Have Guessed Your Number! :P</Text>
+        <Text style={styles.ovrtitle}>Ups, ketebak :P</Text>
         <View style={styles.imgContainer}>
             <Image style={styles.img} source={require('../img/pocacchoow.png')}/>
         </View>
         <View>
             <Text style={styles.sum}>
-                Your phone needed <Text style={styles.highlight}> [X] </Text> round to guess the number{'-'} <Text style={styles.highlight}> [Y] </Text></Text>
+                Aku hanya perlu <Text style={styles.highlight}> [X] </Text> percobaan untuk menebak angka{'-'} :P <Text style={styles.highlight}> [Y] </Text>
+            </Text>
+            <Primarybtn>Mulai Lagi</Primarybtn>
         </View>
         
     </View>);
@@ -68,7 +70,8 @@ const  styles = StyleSheet.create({
         padding: 20,
         fontSize: 18,
         color: 'white',
-        textAlign: 'center'
+        textAlign: 'center',
+        marginVertical: 24,
     },
     highlight:{
         fontSize: 23,
