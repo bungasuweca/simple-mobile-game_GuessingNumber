@@ -2,7 +2,7 @@ import { Image, Text, View, StyleSheet} from "react-native";
 import Colors from "../consts/colors";
 import Primarybtn from "../components/ui/Primarybtn";
 
-function GameOver() {
+function GameOver({roundNum, userNum, onNewGame}) {
     return ( 
         <View style={styles.root}>
         <Text style={styles.hurei}>ヾHooray!</Text> 
@@ -12,9 +12,9 @@ function GameOver() {
         </View>
         <View>
             <Text style={styles.sum}>
-                Aku hanya perlu <Text style={styles.highlight}> [X] </Text> percobaan untuk menebak angka{'-'} :P <Text style={styles.highlight}> [Y] </Text>
+                Aku hanya perlu <Text style={styles.highlight}>{roundNum}</Text> percobaan untuk menebak angka <Text style={styles.highlight}>{userNum} </Text> <Text>:P</Text>
             </Text>
-            <Primarybtn>Mulai Lagi</Primarybtn>
+            <Primarybtn onPress={onNewGame}>Mulai Lagi</Primarybtn>
         </View>
         
     </View>);
