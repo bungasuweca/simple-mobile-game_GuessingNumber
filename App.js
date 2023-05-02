@@ -4,6 +4,7 @@ import Start from './screens/Start';
 import Colors from './consts/colors';
 import Main from './screens/Main';
 import GameOver from './screens/GameOver';
+import SplashScreen from './screens/SplashScreen';
 
 export default function App(){
     const [userNumber, setUserNumber] = useState();
@@ -15,8 +16,9 @@ export default function App(){
         setGameOver(false);
     }
 
-    function gameOverHandler(){
+    function gameOverHandler(numberRounds){
         setGameOver(true);
+        setGuessRound(numberRounds);
     }
 
     function startNewGameHandler(){
